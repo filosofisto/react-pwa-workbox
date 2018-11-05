@@ -16,7 +16,7 @@ function adicionarCustomSW (config, env) {
     const workboxConfigProd = {
       swSrc: path.join(__dirname, 'src', 'custom-service-worker.js'),
       swDest: 'service-worker.js',
-      importWorkboxFrom: 'disabled'
+      importWorkboxFrom: 'cdn'
     } 
     config.plugins.push(new workboxPlugin.InjectManifest(workboxConfigProd))
   }
