@@ -16,6 +16,7 @@ workbox.routing.registerRoute(
   )
 
   const showNotification = () => {
+    console.log("notificou...")
     self.registration.showNotification('Background sync success!', {
       body: '🎉`🎉`🎉`'
     });
