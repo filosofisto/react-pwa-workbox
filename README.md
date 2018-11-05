@@ -138,7 +138,9 @@ workbox.routing.registerRoute(
 ```
 2. Instalar o servidor restfull
 
+``` bash
 npm i json-server -g
+```
 
 3. Executar o comando abaixo no diretório que foi criado o arquivo db.json:
 
