@@ -105,3 +105,43 @@ workbox.routing.registerRoute(
   )
 
 ```
+
+# Criar servidor restfull fake
+
+1. Cria o json db.json com o seguinte conteúdo:
+
+```javascript
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "todo1"
+    },
+    {
+      "id": 2,
+      "title": "todo2"
+    },
+    {
+      "id": 3,
+      "title": "todo3"
+    },
+    {
+      "id": 4,
+      "title": "todo4"
+    },
+    {
+      "id": 5,
+      "title": "todo5"
+    }
+  ]
+}
+```
+2. Instalar o servidor restfull
+
+npm i json-server -g
+
+3. Executar o comando abaixo no diretório que foi criado o arquivo db.json:
+
+``` bash
+json-server --watch db.json --port 8000
+```
