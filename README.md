@@ -16,7 +16,7 @@ Para realizar o build execute o comando:
 npm run build
 ```
 
-# Alterações para implementação do Service Worker Customizado com Wordbox
+# Alterações para implementação do Service Worker customizado com Wordbox
 
 1. Habilitar o Service Worker no arquivo principal do projeto 'index.js' que fica em /src.
 
@@ -97,8 +97,8 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest);
 // app-shell
 workbox.routing.registerRoute("/", workbox.strategies.networkFirst());
 
-// Exemplo de cache de requisição no qual tenta recuperar a resposta no b
-// backend primeiro e caso não falhe ele recupera no cache.
+// Exemplo de cache de requisição no qual tenta recuperar a resposta no 
+// backend primeiro e caso falhe ele recupera no cache.
 workbox.routing.registerRoute(
     'http://localhost:8000/todos',
     workbox.strategies.networkFirst()
