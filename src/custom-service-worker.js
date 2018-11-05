@@ -8,9 +8,31 @@ self.addEventListener('activate', event => event.waitUntil(self.clients.claim())
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
 // app-shell
-workbox.routing.registerRoute("/", workbox.strategies.networkFirst());
+//workbox.routing.registerRoute("/", workbox.strategies.networkFirst());
 
 workbox.routing.registerRoute(
     'http://localhost:8000/todos',
     workbox.strategies.networkFirst()
   )
+
+  const showNotification = () => {
+    self.registration.showNotification('Background sync success!', {
+      body: '🎉`🎉`🎉`'
+    });
+  };
+
+  const bgSyncPlugin = new workbox.backgroundSync.Plugin('todoQueue', {
+    maxRetentionTime: 24 * 60,
+    callbacks: {
+      queueDidReplay: showNotification
+      // other types of callbacks could go here
+    }
+  });
+  
+workbox.routing.registerRoute(
+    'http://localhost:8000/todos',
+    workbox.strategies.networkOnly({
+      plugins: [bgSyncPlugin]
+    }),
+    'POST'
+  )  
